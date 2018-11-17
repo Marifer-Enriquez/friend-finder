@@ -200,11 +200,26 @@
     <hr>
     <script type="text/javascript">
 
-        $(document).ready(function () {
+         $(document).ready(function () {
                 $('#submitans').on('click', function (event) {
                     event.preventDefault();
 
-                   
+                    function validateFunction() {
+                        var valid = true;
+                        $(".validate").each(function () {
+                            if ($(this).val() === "") {
+                                valid = false;
+                            }
+                        });
+                        $(".scroll").each(function () {
+                            if ($(this).val() === "") {
+                                valid = false;
+                            }
+                        });
+
+                        return valid;
+                    }
+                    if (validateFunction() == true) {
                         var newFriend = {
                             name: $("#name").val(),
                             profilePic: $("#photo").val(),
@@ -229,9 +244,12 @@
                             $("#modal").modal("toggle");
                         });
 
-                    });
-                    
-                 });
+                    }
+                    else{
+                        alert("Please answer every question before moving on")
+                    }
+                });    
+             });
 
     </script>
 </body>

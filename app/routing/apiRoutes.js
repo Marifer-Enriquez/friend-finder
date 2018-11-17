@@ -33,7 +33,7 @@ for (var i = 0; i < scoresArray.length; i++) {
 
 var bestfriend = friendsData[bestMatch];
 res.json(bestfriend)
-friendsData.push(req.body);
+friendsArray.push(req.body);
   });
 
   
